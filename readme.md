@@ -20,7 +20,7 @@ Enjoy !
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
 IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY.
 
-Copyright (C) 2025 [Votre Nom]
+Copyright (C) 2025 [dzediar]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software for NON-COMMERCIAL USE ONLY, subject to the following conditions:
@@ -30,6 +30,7 @@ of this software for NON-COMMERCIAL USE ONLY, subject to the following condition
 3. The above copyright notice and this permission notice shall be included in all copies.
 
 4. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
 
 
 
