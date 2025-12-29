@@ -1,10 +1,10 @@
 **Mediamize is a youtube download wrapper / Windows desktop application that run yt-dlp.exe commands on youtube or other plateforms.**
 
-![Mediamize](mediamize.jpg)
+![Mediamize](mediamize.jpg =300x200)
 
 You will need : 
 
-Youtube Download exe (yt-dlp.exe =300x200) : 
+Youtube Download exe (yt-dlp.exe) : 
 https://github.com/yt-dlp/yt-dlp/releases
 
 Ffmpeg exe (ffmpeg.exe) : 
@@ -30,3 +30,4 @@ of this software for NON-COMMERCIAL USE ONLY, subject to the following condition
 3. The above copyright notice and this permission notice shall be included in all copies.
 
 4. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
