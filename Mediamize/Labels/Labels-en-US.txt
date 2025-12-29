@@ -1,0 +1,28 @@
+TEST	en-US	TESTen-US	URL_GO_REFRESH	Go / refresh
+en-US	OPEN_SETTINGS	Open settings
+en-US	AVAILABLE_FORMATS	Available formats
+en-US	ADD_EXTRACTION_TO_QUEUE	Add to queue
+en-US	QUEUE	Queue
+en-US	REMOVE_EXTRACTION_FROM_QUEUE	Remove from queue
+en-US	START	Start
+en-US	CLEAR	Clear
+en-US	OK	Ok
+en-US	URL_GO_REFRESH	Go
+en-US	SETTINGS	Settings
+en-US	YOUTUBE_DOWNLOAD_EXE_PATH	Youtube-DL exe path
+en-US	FFMPEG_EXE_PATH	FFMPEG exe path
+en-US	OUTPUT_PATH	Extraction path
+en-US	EXTRACT_METADATA	Extract videos metadata
+en-US	CANCEL	Cancel
+en-US	AUDIO	Audio
+en-US	VIDEO	Video
+en-US	EXTRACTION_PROCESS	Extraction process
+en-US	PAUSE	Pause
+en-US	STOP	Stop
+en-US	URL_BACK	Back
+en-US	EXTRACT	Extract
+en-US	CLOSE	Close
+en-US	REMOVESPECIALCHARS_FROM_TITLES	Replace special chars
+en-US	ADD_PLAYLIST_TO_QUEUE	Add playlist elements to queue
+en-US	ELEMENT(S)	Element(s)
+en-US	DENO_EXE_PATH	Deno path

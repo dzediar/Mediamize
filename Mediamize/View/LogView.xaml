@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Mediamize.View.LogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:zwView="clr-namespace:zComp.Wpf.View;assembly=zComp.Wpf"
+        xmlns:zw="clr-namespace:zComp.Wpf;assembly=zComp.Wpf">
+    <zw:zGrid>
+        <zw:zGrid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </zw:zGrid.RowDefinitions>
+
+        <zw:zListBox ItemsSource="{Binding Logs}" Background="Black" BorderThickness="0" Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ConsoleBehavior="True">
+            <zw:zListBox.ItemTemplate>
+                <DataTemplate>
+                    <zw:zTextBlock Text="{Binding Text}" Foreground="{Binding Color}" FontFamily="Consolas" TextWrapping="Wrap" Margin="0"/>
+                    <!-- JetBrains Mono / Consolas -->
+                </DataTemplate>
+            </zw:zListBox.ItemTemplate>
+        </zw:zListBox>
+
+        <zw:zStackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 16 0">
+
+            <zw:zButton Grid.Row="3" Style="{StaticResource {x:Static zw:zCompRepository.EllipseButtonStyleKey}}"
+                        zwView:Translator.ToolTip="STOP" zwView:Translator.Caption="STOP" 
+                        Margin="8" MinWidth="120" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Height="34"
+                        ContentTemplate="{StaticResource StopIcon}" Content="1"
+                        IsEnabled="{Binding IsRunning, Mode=OneWay}" Command="{Binding StopCommand, Mode=OneTime}"/>
+
+        </zw:zStackPanel>
+    </zw:zGrid>
+</UserControl>

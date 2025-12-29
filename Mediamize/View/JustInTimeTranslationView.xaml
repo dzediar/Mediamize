@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Mediamize.View.JustInTimeTranslationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:zw="clr-namespace:zComp.Wpf;assembly=zComp.Wpf"
+             xmlns:zwConverters="clr-namespace:zComp.Wpf.Converters;assembly=zComp.Wpf"
+             xmlns:zwView="clr-namespace:zComp.Wpf.View;assembly=zComp.Wpf"
+             xmlns:zwListView="clr-namespace:zComp.Wpf.ListView;assembly=zComp.Wpf"
+             xmlns:model="clr-namespace:Mediamize.Model"
+             xmlns:zwbehaviors="clr-namespace:zComp.Wpf.Behaviors;assembly=zComp.Wpf"
+             xmlns:zwconverters="clr-namespace:zComp.Wpf.Converters;assembly=zComp.Wpf"
+             xmlns:zwlv="clr-namespace:zComp.Wpf.ListView;assembly=zComp.Wpf"
+             xmlns:zwview="clr-namespace:zComp.Wpf.View;assembly=zComp.Wpf"
+             xmlns:viewModel="clr-namespace:Mediamize.ViewModel"
+             xmlns:view="clr-namespace:Mediamize.View"
+             mc:Ignorable="d"
+             Margin="0" Width="1000" Height="500"
+             d:DesignHeight="800" 
+             d:DesignWidth="800">
+   
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <zw:zButton Grid.Column="0" Style="{StaticResource {x:Static zw:zCompRepository.EmptyButtonStyleKey}}" Margin="8" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" FontSize="12" zwView:Translator.Caption="SAVE" Command="{Binding SaveCommand, Mode=OneWay}">
+            <Path Style="{DynamicResource MediumToolIconPathStyle}" Data="m29.547 6.547-5.1-5.1A1.537 1.537 0 0 0 23.364 1H4.25A2.256 2.256 0 0 0 2 3.25v25.5A2.256 2.256 0 0 0 4.25 31h23.5A2.257 2.257 0 0 0 30 28.75V7.64a1.546 1.546 0 0 0-.453-1.093zM10.9 4h10.2a.9.9 0 0 1 .9.9v2.38A1.72 1.72 0 0 1 20.28 9h-8.56A1.72 1.72 0 0 1 10 7.28V4.9a.9.9 0 0 1 .9-.9zm12.2 24H8.9a.9.9 0 0 1-.9-.9v-8.38A1.72 1.72 0 0 1 9.72 17h12.56A1.72 1.72 0 0 1 24 18.72v8.38a.9.9 0 0 1-.9.9z" />
+        </zw:zButton>
+
+        <zw:zButton Grid.Column="1" Style="{StaticResource {x:Static zw:zCompRepository.EmptyButtonStyleKey}}" Margin="8" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" FontSize="12" zwView:Translator.Caption="CLEAR" Command="{Binding ClearCommand, Mode=OneWay}">
+            <Path Style="{StaticResource MediumToolIconPathStyle}" Data="M18.38 55h23.24c.53 0 .97-.42 1-.95l1.76-33.13H15.62l1.76 33.13a1 1 0 0 0 1 .95zm17.39-28.88c.02-.55.52-.99 1.04-.96.55.03.98.49.96 1.05l-.96 21.58c-.03.54-.47.96-1 .96-.02 0-.03 0-.04-.01a.997.997 0 0 1-.96-1.04zm-6.77.04c0-.55.44-1 1-1 .55 0 1 .45 1 1v21.59c0 .55-.45 1-1 1s-1-.45-1-1zm-5.82-1c.51-.03 1.02.41 1.05.96l.95 21.58a.99.99 0 0 1-.95 1.04c-.02.01-.03.01-.05.01-.53 0-.97-.42-.99-.96l-.96-21.58c-.03-.56.4-1.02.95-1.05zM47.46 16.02v-2.38a2.9 2.9 0 0 0-2.9-2.89h-4.98V9.02c0-2.22-1.8-4.02-4.02-4.02H24.44a4.02 4.02 0 0 0-4.02 4.02v1.73h-4.98a2.9 2.9 0 0 0-2.9 2.89v2.38c0 1.6 1.3 2.9 2.9 2.9h29.12c1.6 0 2.9-1.3 2.9-2.9zm-25.04-7c0-1.12.9-2.02 2.02-2.02h11.12c1.11 0 2.02.91 2.02 2.02v1.73H22.42z" />
+        </zw:zButton>
+
+        <zwlv:zListView x:Name="lvLabels" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="0" Padding="0" AllowColumnMove="False" BorderThickness="1" 
+                        AllowColumnResize="True" AllowColumnSort="False" ItemsSource="{Binding Translations, Mode=OneWay}">
+            <zwlv:zListViewField Width="200" Header="Culture" DisplayMemberBinding="{Binding Culture, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" EditMode="Label"/>
+            <zwlv:zListViewField Width="250" Header="Key" DisplayMemberBinding="{Binding Code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" EditMode="Label"/>
+            <zwlv:zListViewField Width="600" Header="Caption" DisplayMemberBinding="{Binding Label, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" EditMode="Text"/>
+        </zwlv:zListView>
+
+    </Grid>
+</UserControl>

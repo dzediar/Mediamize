@@ -1,0 +1,28 @@
+TEST	fr-FR	TESTfr-FR	URL_GO_REFRESH	Go / rafraichir
+fr-FR	OPEN_SETTINGS	Ouvrir la configuration
+fr-FR	AVAILABLE_FORMATS	Formats disponibles
+fr-FR	ADD_EXTRACTION_TO_QUEUE	Ajouter à la file d'attente
+fr-FR	QUEUE	File d'attente
+fr-FR	REMOVE_EXTRACTION_FROM_QUEUE	Supprimer de la file d'attente
+fr-FR	START	Démarrer
+fr-FR	CLEAR	Effacer
+fr-FR	OK	Ok
+fr-FR	URL_GO_REFRESH	Go
+fr-FR	SETTINGS	Configuration
+fr-FR	YOUTUBE_DOWNLOAD_EXE_PATH	Chemin de Youtube-DL
+fr-FR	FFMPEG_EXE_PATH	Chemin de FFMPEG
+fr-FR	OUTPUT_PATH	Chemin d'extraction
+fr-FR	EXTRACT_METADATA	Extraire les metadata des vidéos
+fr-FR	CANCEL	Annuler
+fr-FR	AUDIO	Audio
+fr-FR	VIDEO	Vidéo
+fr-FR	EXTRACTION_PROCESS	Processus d'extraction
+fr-FR	PAUSE	Pause
+fr-FR	STOP	Stop
+fr-FR	URL_BACK	Retour
+fr-FR	EXTRACT	Extraire
+fr-FR	CLOSE	Fermer
+fr-FR	REMOVESPECIALCHARS_FROM_TITLES	Remplacer les caractères spéciaux
+fr-FR	ADD_PLAYLIST_TO_QUEUE	Ajouter les éléments de la playlist à la queue
+fr-FR	ELEMENT(S)	Elément(s)
+fr-FR	DENO_EXE_PATH	Chemin de deno
