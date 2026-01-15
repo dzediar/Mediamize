@@ -10,13 +10,15 @@
         xmlns:zw="clr-namespace:zComp.Wpf;assembly=zComp.Wpf"
         xmlns:zwModel="clr-namespace:zComp.Wpf.Model;assembly=zComp.Wpf"    
         xmlns:zwView="clr-namespace:zComp.Wpf.View;assembly=zComp.Wpf"
+        xmlns:zwbehaviors="clr-namespace:zComp.Wpf.Behaviors;assembly=zComp.Wpf"
         MinWidth="1200" MinHeight="800" Width="1200" Height="800"
         WindowStartupLocation="CenterScreen"
         WindowState="{Binding Repository.LocalConfiguration.MainWindowState, Mode=TwoWay, Converter={x:Static converters:zWindowStateToStringConverter.Instance}}"
         Title="{Binding ApplicationTitle, Mode=OneWay, Source={x:Static viewModel:ApplicationViewModel.Instance}}">
     <zw:zSmoothWindow.Resources>
         
-        <CollectionViewSource x:Key="AvailableFormats" Source="{Binding AvailableFormats, Mode=OneWay}">
+        <CollectionViewSource x:Key="AvailableFormats" Source="{Binding AvailableFormats, Mode=OneWay}"
+                              zw:zFrameworkElementExtension.FilterFields="Ext,Resolution,Note,FormatType,Description">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription PropertyName="FormatType" Direction="Ascending"/>
                 <!--<scm:SortDescription PropertyName="DisplayName" Direction="Ascending"/>-->
@@ -39,7 +41,7 @@
             <MediaElement x:Name="mediaElement" Visibility="Collapsed" LoadedBehavior="Play" MediaOpened="MediaElement_MediaOpened"
                           Source="{Binding SoundToPlay, Mode=OneWay, Source={x:Static viewModel:ApplicationViewModel.Instance}}"/>
 
-            <zw:zTabGroupBox Grid.Row="0" IsExpandable="False" IsExpanded="True" BorderThickness="0 0.5 0 0.7" FrameWidth="0" Padding="0"
+            <zw:zTabGroupBox Grid.Row="0" IsExpandable="False" IsExpanded="True" BorderThickness="0 0.5 0 0" FrameWidth="0" Padding="0"
                              FrameBackground="{DynamicResource {x:Static zw:zCompColors.DefaultGradientBackgroundReverseBrushKey}}">
                 <zw:zTabGroupBox.Header>
                     <zw:zGrid Margin="4">
@@ -88,7 +90,7 @@
                 </zw:zBorder>
             </zw:zTabGroupBox>
 
-            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="2"/>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="4"/>
 
             <!-- Bottom Panel -->
             <zw:zGrid Grid.Row="2">
@@ -99,7 +101,7 @@
                 </zw:zGrid.ColumnDefinitions>
 
                 <!-- Format List -->
-                <zw:zTabGroupBox Grid.Column="0" BorderThickness="0" Margin="0 -2 0 0" InnerBorderThickness="0 0.5 0 0.5" FrameWidth="0" Padding="0">
+                <zw:zTabGroupBox Grid.Column="0" BorderThickness="0 0.5 0 0" Margin="0 -2 0 0" InnerBorderThickness="0 0.5 0 0.5" FrameWidth="0" Padding="0">
                     <zw:zTabGroupBox.Header>
                     
                         <zw:zGrid Margin="4">
@@ -124,6 +126,13 @@
                             <!-- Actions -->
                             <zw:zStackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
 
+                                <zw:zTextBox x:Name="edFilter" Grid.Row="0" Style="{StaticResource SearchTextBox}" 
+                                             zw:zFrameworkElementExtension.FilterText="{Binding RelativeSource={RelativeSource Self}, Path=Text, Mode=TwoWay, Delay=600}"
+                                             zw:zFrameworkElementExtension.FilterTarget="{Binding Source={StaticResource AvailableFormats}}"
+                                             zw:zFrameworkElementExtension.FilterFields="Ext,Resolution,Note,FormatType,Description"
+                                             Margin="0 0 4 0" Padding="4" TextAlignment="Left" Background="Transparent" FontSize="16"
+                                             VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" BorderThickness="0.5"/>
+
                                 <zw:zButton Grid.Column="1" Style="{StaticResource {x:Static zw:zCompRepository.CircleButtonStyleKey}}"
                                             zwView:Translator.ToolTip="ADD_EXTRACTION_TO_QUEUE" Width="30" Height="30" ContentTemplateSelector="{x:Null}"
                                             Margin="0 0 8 0" HorizontalAlignment="Left" VerticalAlignment="Top" ContentTemplate="{StaticResource AddIcon}" Content="1"
@@ -140,9 +149,15 @@
                     </zw:zTabGroupBox.Header>
                     <zw:zListBox x:Name="lbAvailableFormats" BorderThickness="0" ShowGroupsHeaders="True" Padding="0" Margin="0"
                                  VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.ScrollUnit="Pixel" ScrollViewer.CanContentScroll="False" 
-                                 ItemsSource="{Binding Source={StaticResource AvailableFormats}}"
-                                 SelectedItem="{Binding SelectedFormat}" >
-                            <zw:zListBox.ItemTemplate>
+                                 SelectedItem="{Binding SelectedFormat}" ItemsSource="{Binding Source={StaticResource AvailableFormats}}">
+                        <!--
+                        <i:Interaction.Behaviors>
+                            <zwbehaviors:zItemsControlFilterBehavior FilterValue="{Binding Text, Mode=OneWay, ElementName=edFilter}" FilterDelay="00:00:00.600"
+                                ItemsSource="{Binding Source={StaticResource AvailableFormats}}" 
+                                FieldsList="Ext,Resolution,Note,FormatType,Description"/>
+                        </i:Interaction.Behaviors>
+                        -->
+                        <zw:zListBox.ItemTemplate>
                             <DataTemplate>
                                 <zw:zTextBlock>
                                     <Run Text="{Binding Format, Mode=OneTime}" FontWeight="Bold"/>
@@ -155,7 +170,7 @@
                 </zw:zTabGroupBox>
 
                 <!-- Job Queue -->
-                <zw:zTabGroupBox Grid.Column="1" Margin="0 -2 0 0" BorderThickness="0.5 0 0 0.5" InnerBorderThickness="0 0.5 0 0" FrameWidth="0" Padding="0">
+                <zw:zTabGroupBox Grid.Column="1" Margin="0 -2 0 0" BorderThickness="0.5 0.5 0 0.5" InnerBorderThickness="0 0.5 0 0" FrameWidth="0" Padding="0">
                     <zw:zTabGroupBox.Header>
 
                         <zw:zGrid Margin="4">

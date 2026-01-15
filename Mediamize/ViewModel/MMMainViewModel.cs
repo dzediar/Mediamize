@@ -84,7 +84,10 @@ namespace Mediamize.ViewModel
 
             AvailableFormats.Clear();
 
-            await AnalyzeUrlInternal();
+            if (DownloadService.MustRefreshFormats(CurrentUrl))
+            {
+                await AnalyzeUrlInternal();
+            }
         }
 
         /// <summary>
@@ -552,7 +555,31 @@ namespace Mediamize.ViewModel
 
                 RefreshAllCommands();
             }
-        }        
+        }
+
+        ///// <summary>
+        ///// Formats filter
+        ///// </summary>
+        //public bool formatsFilter = false;
+        //
+        ///// <summary>
+        ///// Formats filter
+        ///// </summary>
+        //public bool FormatsFilter
+        //{
+        //    get
+        //    {
+        //        return formatsFilter;
+        //    }
+        //    private set
+        //    {
+        //        formatsFilter = value;
+        //        OnPropertyChanged(nameof(FormatsFilter));
+        //
+        //        RefreshAllCommands();
+        //    }
+        //}
+        
 
         public RelayCommand OpenSettingsCommand { get; private set; }
 

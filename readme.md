@@ -32,5 +32,19 @@ of this software for NON-COMMERCIAL USE ONLY, subject to the following condition
 4. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 
+**Releases history :**
+
+V1.0.0.0
+
+- Initial version
+
+V1.0.1.0
+
+- MP3 format recovery
+- Added a filter for formats
+- Only refresh formats if you are watching a video
+- Added a movable splitter on the main screen
+
+
 
 
